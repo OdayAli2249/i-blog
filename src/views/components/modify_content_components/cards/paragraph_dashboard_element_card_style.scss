@@ -1,0 +1,25 @@
+@import '../../core/styles/styles.scss';
+
+.paragraph-dashboard-element-card-root {
+    border-radius: $large-radius;
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    @extend .row-main-start-cross-center;
+    @extend .place-holder;
+}
+
+.selected-paragraph-dashboard-element-card-root {
+    border-radius: $large-radius;
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    background-color: grey;
+    @extend .row-main-start-cross-center;
+    @extend .place-holder;
+}
+
+.paragraph-dashboard-element-remove {
+    cursor: pointer;
+    @extend .place-holder;
+}

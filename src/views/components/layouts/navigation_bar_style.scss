@@ -1,0 +1,19 @@
+@import '../core/styles/styles.scss';
+
+.navigation-bar {
+    top: 0px;
+    right: 0px;
+    position: fixed;
+    width: calc(100vw - 60px);
+    height: 60px;
+    @extend .place-holder;
+}
+
+.navigation-bar-list {
+    @extend .row-main-start-cross-center;
+    height: 100%;
+    padding: $small-padding;
+    margin: 0px;
+    list-style-type: none;
+    @extend .place-holder;
+}

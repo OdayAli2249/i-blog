@@ -1,0 +1,7 @@
+@import '../core/styles/styles.scss';
+
+.edit-comment-reply-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-center-cross-center;
+}

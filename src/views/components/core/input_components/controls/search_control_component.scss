@@ -1,0 +1,47 @@
+@import '../../styles/styles.scss';
+
+.home-header-search-bar {
+    position: relative;
+    width: 400px;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.home-search-field {
+    width: 85%;
+    height: 40px;
+    @extend .place-holder;
+}
+
+.home-header-search-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.home-search-field::placeholder {
+    color: #606060;
+}
+
+.home-search-button {
+    width: 15%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @extend .place-holder;
+}
+
+.home-header-clear-icon {
+    right: 15%;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}

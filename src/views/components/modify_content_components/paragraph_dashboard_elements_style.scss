@@ -1,0 +1,7 @@
+@import '../core/styles/styles.scss';
+
+.paragraph-dashboard-elements-root {
+    display: flex;
+    flex-wrap: wrap;
+    @extend .place-holder;
+}

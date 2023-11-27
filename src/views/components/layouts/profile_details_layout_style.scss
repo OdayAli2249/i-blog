@@ -1,0 +1,94 @@
+@import '../core/styles/styles.scss';
+
+.profile-details-layout-root {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    @extend .place-holder;
+}
+
+.profile-details-layout-row {
+    width: 100%;
+    @extend .row-main-start-cross-start;
+}
+
+.profile-details-layout-side-bar-place-holder {
+    width: 300px;
+}
+
+.profile-details-layout-side-bar {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    width: 300px;
+    height: calc(100vh - 60px);
+    direction: rtl;
+    overflow: auto;
+    @extend .place-holder;
+}
+
+.profile-details-layout-side-bar-column {
+    width: 300px;
+    height: auto;
+    @extend .column-main-start-cross-center;
+    @extend .place-holder;
+}
+
+.profile-details-layout-body {
+    width: calc(100% - 300px);
+    height: auto;
+    @extend .column-main-start-cross-start;
+}
+
+.profile-details-layout-profile-cover {
+    width: 100%;
+    height: 200px;
+    @extend .place-holder;
+}
+
+.profile-details-layout-profile-footer {
+    width: 100%;
+    height: 150px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    @extend .place-holder;
+    @extend .row-main-space-between-cross-center;
+}
+
+.profile-details-layout-content {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.profile-details-layout-profile-avatar {
+    width: 100px;
+    height: 100px;
+    @extend .place-holder;
+}
+
+.profile-details-layout-profile-row {
+    @extend .row-main-start-cross-center;
+}
+
+.profile-details-layout-profile-column {
+    @extend .column-main-start-cross-end;
+}
+
+.profile-details-layout-side-bar-personal-info {
+    width: 100%;
+    height: 200px;
+    direction: ltr;
+    @extend .place-holder;
+}
+
+.profile-details-layout-profile-cover-place-holder{
+    width: 100%;
+    height: 200px;
+}
+
+.profile-details-layout-profile-footer-place-holder{
+    width: 100%;
+    height: 150px;
+}

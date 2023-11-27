@@ -1,0 +1,32 @@
+@import '../core/styles/styles.scss';
+
+.profile-side-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    height: calc(100vh);
+    width: 60px;
+    @extend .place-holder;
+}
+
+.profile-side-bar-icon {
+    height: $small-icon;
+    width: $small-icon;
+    @extend .place-holder;
+}
+
+.profile-side-bar-first-space {
+    flex: 2;
+    width: $small-padding;
+    @extend .place-holder;
+}
+
+.profile-side-bar-second-space {
+    flex: 4;
+    width: $small-padding;
+    @extend .place-holder;
+}

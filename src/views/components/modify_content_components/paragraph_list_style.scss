@@ -1,0 +1,17 @@
+@import '../core/styles/styles.scss';
+
+.paragraph-list-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.paragraph-list-body {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    box-sizing: border-box;
+    @extend .place-holder;
+}

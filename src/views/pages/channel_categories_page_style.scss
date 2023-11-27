@@ -1,0 +1,17 @@
+@import '../components/core/styles/styles.scss';
+
+.channel-categories-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-start-cross-start;
+}
+
+.channel-category-container {
+    width: 100%;
+    height: auto;
+}
+
+.channel-category-row {
+    width: 100%;
+    @extend .row-main-space-between-cross-start;
+}

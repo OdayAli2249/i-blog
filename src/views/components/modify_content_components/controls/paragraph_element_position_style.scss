@@ -1,0 +1,8 @@
+@import '../../core/styles/styles.scss';
+
+.paragraph-element-position-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}

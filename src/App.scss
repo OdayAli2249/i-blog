@@ -1,0 +1,40 @@
+@import './views/components/core/styles/styles.scss';
+
+.App {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background-color: rgb(50, 50, 50);
+}
+
+.standard-text {
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

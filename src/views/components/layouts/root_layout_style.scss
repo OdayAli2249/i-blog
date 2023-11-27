@@ -1,0 +1,29 @@
+@import '../core/styles/styles.scss';
+
+.root-layout-root {
+    width: 100vw;
+    height: 100vh;
+    @extend .row-main-start-cross-start;
+}
+
+.root-layout-column {
+    width: calc(100vw - 60px);
+    height: 100vh;
+    @extend .column-main-start-cross-start;
+}
+
+.navigation-bar-place-holder {
+    width: calc(100vw - 60px);
+    height: 60px;
+}
+
+.left-side-bar-place-holder {
+    height: calc(100vh);
+    width: 60px;
+}
+
+.app-body-place-holder {
+    height: calc(100vh - 60px);
+    width: calc(100vw - 60px);
+    @extend .place-holder;
+}

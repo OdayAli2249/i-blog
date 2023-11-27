@@ -1,0 +1,73 @@
+@import './core/styles/styles.scss';
+
+.content-details-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    @extend .place-holder;
+}
+
+.content-details-column {
+    position: relative;
+    @extend .place-holder;
+    @extend .column-main-start-cross-center;
+}
+
+.content-details-header {
+    width: 60%;
+    height: 100px;
+    @extend .place-holder;
+}
+
+.content-details-body {
+    width: 60%;
+    height: 600px;
+    @extend .place-holder;
+}
+
+.content-details-interaction-row {
+    width: 60%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.content-details-comments-container {
+    width: 60%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.content-details-comment-place-holder {
+    height: 100px;
+}
+
+.comment-state-snack-bar {
+    bottom: 0px;
+    right: 0px;
+    position: fixed;
+    @extend .place-holder;
+}
+
+.content-details-interactions-column {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.content-details-interaction {
+    width: 50px;
+    height: 50px;
+    @extend .place-holder;
+}
+
+.active-content-details-interaction {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(128, 128, 128);
+    @extend .place-holder;
+}

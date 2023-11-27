@@ -1,0 +1,25 @@
+@import '../components/core/styles/styles.scss';
+
+.channel-posts-root {
+    width: 100%;
+    height: auto;
+}
+
+.delete-content-floating-select-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    z-index: 2;
+    @extend .place-holder;
+    cursor: pointer;
+}
+
+.delete-content-floating-row {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    @extend .row-main-start-cross-start;
+}

@@ -1,0 +1,16 @@
+@import './core/styles/styles.scss';
+
+.hover-box {
+    position: absolute;
+    top: 80px;
+    z-index: 1;
+    width: 200px;
+    height: 300px;
+    background-color: transparent;
+}
+
+.pop-up-box {
+    width: 100%;
+    height: 100%;
+    @extend .place-holder;
+}

@@ -1,0 +1,27 @@
+@import '../../core/styles/styles.scss';
+
+.paragraph-card-root {
+    border-radius: $small-radius;
+    width: 100%;
+    height: auto;
+    @extend .row-main-start-cross-start;
+    @extend .place-holder;
+}
+
+
+.paragraph-container-card {
+    width: 100px;
+    height: 100px;
+    @extend .place-holder;
+}
+
+.selected-paragraph-container-card {
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    @extend .place-holder;
+}
+
+.paragraph-elements-section {
+    width: calc(100% - 100px);
+}

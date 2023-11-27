@@ -1,0 +1,84 @@
+@import '../../styles/styles.scss';
+
+.file-picker-control-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.file-picker-control-label {
+    word-wrap: break-word;
+    font-size: 18px;
+    padding: 0px;
+    text-align: left;
+    margin: 0px;
+}
+
+.file-picker-field-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+
+.file-picker-field-button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    @extend .place-holder;
+}
+
+
+.file-picker-field-content {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.file-picker-field-empty {
+    width: 120px;
+    height: 120px;
+    object-fit: fill;
+    box-sizing: border-box;
+    cursor: pointer;
+    @extend .place-holder;
+}
+
+.file-picker-field-inside-button {
+    width: 60%;
+    height: 60%;
+    @extend .place-holder;
+}
+
+.file-picker-field-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.file-picker-control-error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.file-picker-control-error-icon {
+    width: 15px;
+    height: 15px;
+    color: #d21111;
+}
+
+.file-picker-control-error-text {
+    width: auto;
+    word-wrap: break-word;
+    font-size: 16px;
+    font-weight: 300;
+    color: #d21111;
+    padding: 0px;
+    text-align: left;
+    margin: 0px;
+}

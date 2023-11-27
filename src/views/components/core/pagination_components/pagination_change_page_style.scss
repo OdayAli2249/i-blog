@@ -1,0 +1,6 @@
+@import '../styles/styles.scss';
+
+.pagination-change-page-root {
+    @extend .row-main-start-cross-start;
+    @extend .place-holder;
+}

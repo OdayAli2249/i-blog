@@ -1,0 +1,23 @@
+@import './core/styles/styles.scss';
+
+.interactions-section-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+    @extend .row-main-space-between-cross-center;
+}
+
+.interaction-icon {
+    width: 30px;
+    height: 30px;
+    @extend .place-holder;
+}
+
+.interaction {
+    @extend .row-main-start-cross-center;
+}
+
+.active-interactionn {
+    @extend .place-holder;
+    @extend .row-main-start-cross-center;
+}

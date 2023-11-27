@@ -1,0 +1,33 @@
+.card-selected {
+    position: absolute;
+    top: $extra-small-corner-position;
+    right: $extra-small-corner-position;
+    width: $extra-small-icon;
+    height: $extra-small-icon;
+    background-color: $green-color;
+    padding: 6px;
+    color: white;
+    border-radius: $medium-radius;
+}
+
+.card-unselected {
+    position: absolute;
+    top: $extra-small-corner-position;
+    right: $extra-small-corner-position;
+    width: 23px;
+    height: 23px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: $medium-radius;
+}
+
+.place-holder {
+    // uncomment these only for dimension checking, because they make dimension calculas draft
+    // border-left: 2px solid rgb(118, 118, 247);
+    // border-right: 2px solid rgb(66, 66, 247);
+    // border-top: 2px solid rgb(215, 108, 237);
+    // border-bottom: 2px solid rgb(202, 41, 234);
+    box-sizing: border-box;
+    outline: 1px solid $secondary;
+    background-color: rgba(0, 0, 0, 0.041);
+}

@@ -1,0 +1,7 @@
+@import '../core/styles/styles.scss';
+
+.modify-content-list-root {
+    width: 100%;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}

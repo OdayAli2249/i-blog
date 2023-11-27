@@ -1,0 +1,11 @@
+@import '../core/styles/styles.scss';
+
+.subscribtion-status-root {
+    width: 100%;
+    height: 100%;
+    @extend .column-main-center-cross-center;
+}
+
+.selected-subscribtion-status {
+    @extend .place-holder;
+}

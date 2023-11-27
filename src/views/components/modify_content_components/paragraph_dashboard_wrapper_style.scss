@@ -1,0 +1,6 @@
+@import '../core/styles/styles.scss';
+
+.paragraph_dashboard_wrapper_root {
+    @extend .column-main-start-cross-center;
+    @extend .place-holder;
+}

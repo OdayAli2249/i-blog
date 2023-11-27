@@ -1,0 +1,23 @@
+@import '../core/styles/styles.scss';
+
+.comment-reply-field-root {
+    position: fixed;
+    bottom: 0px;
+    width: 60%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.comment-reply-field-dialog-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.comment-reply-field-row {
+    @extend .row-main-space-between-cross-start
+}
+
+.comment-reply-field-options {
+    @extend .row-main-start-cross-start
+}

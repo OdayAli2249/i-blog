@@ -1,0 +1,88 @@
+@import '../components/core/styles/styles.scss';
+
+.search-content-root {
+    width: 100%;
+    height: 100%;
+    @extend .place-holder;
+    @extend .column-main-start-cross-start;
+}
+
+.search-content-top-bar {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    @extend .row-main-start-cross-start;
+    @extend .place-holder;
+}
+
+.search-content-body {
+    width: 100%;
+    height: calc(100% - 80px);
+    overflow-y: scroll;
+    @extend .place-holder;
+}
+
+.search-content-row {
+    width: 100%;
+    @extend .place-holder;
+    @extend .row-main-start-cross-start;
+}
+
+.search-content-list-container {
+    width: calc(100% - 300px);
+    height: auto;
+    @extend .place-holder;
+    @extend .column-main-start-cross-center;
+}
+
+.search-content-side-bar-place-holder {
+    width: 300px;
+}
+
+.search-content-side-bar {
+    position: fixed;
+    top: 140px;
+    right: 10px;
+    width: 300px;
+    height: calc(100vh - 140px);
+    @extend .place-holder;
+    @extend .column-main-start-cross-center;
+}
+
+.search-content-list-item {
+    width: 100%;
+    height: 400px;
+    @extend .place-holder;
+}
+
+.search-content-top-bar-filters {
+    position: relative;
+    height: 80px;
+    @extend .row-main-start-cross-center;
+}
+
+.filters-button {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    @extend .place-holder;
+}
+
+.search-content-top-bar-first-section {
+    width: calc(100% - 310px);
+    height: 100%;
+    @extend .row-main-center-cross-center;
+    @extend .place-holder;
+}
+
+.search-content-top-bar-filters-container {
+    width: 100%; // the same as pagination percentage
+    @extend .place-holder;
+    @extend .row-main-start-cross-start;
+}
+
+.search-content-top-bar-second-section {
+    width: 310px; // extra 10px for scroll bar
+    height: 100%;
+    @extend .place-holder;
+}

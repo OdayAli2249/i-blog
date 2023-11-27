@@ -1,0 +1,34 @@
+import { Actions } from "../actions";
+
+const initialState = {
+    data: null,
+    loading: false,
+    failure: null,
+};
+
+export const deleteContentReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case Actions.DELETE_CONTENT_SUCCESS:
+            return {
+                success: true,
+                loading: false,
+                failure: null,
+            };
+        case Actions.DELETE_CONTENT_LOADING:
+            return {
+                data: null,
+                loading: true,
+                failure: null,
+            };
+        case Actions.DELETE_CONTENT_FAILURE:
+            return {
+                data: null,
+                loading: false,
+                failure: action.payload.failure,
+            };
+        case Actions.DELETE_CONTENT_INITIAL:
+            return initialState;
+        default:
+            return state;
+    }
+};

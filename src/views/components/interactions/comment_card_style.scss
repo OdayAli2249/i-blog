@@ -1,0 +1,86 @@
+@import '../core/styles/styles.scss';
+
+.comment-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.comment-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.comment-text-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @extend .place-holder;
+}
+
+.comment-column {
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end
+}
+
+.comment-options-row {
+    @extend .row-main-start-cross-start;
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    @extend .place-holder;
+}
+
+.reply-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.replies-column {
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @extend .place-holder;
+}
+
+.reply-text-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @extend .place-holder;
+}
+
+.reply-column {
+    width: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end
+}
+
+.reply-avatar {
+    width: 30px;
+    height: 30px;
+    @extend .place-holder;
+}
+
+.reply-options-row {
+    @extend .row-main-start-cross-start;
+}
+
+.comment-reply-add-edit-row {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    @extend .row-main-start-cross-start;
+}

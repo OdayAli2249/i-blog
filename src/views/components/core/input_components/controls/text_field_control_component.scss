@@ -1,0 +1,71 @@
+@import '../../styles/styles.scss';
+
+.text-field-control-root {
+    width: 100%;
+    height: auto;
+}
+
+.text-field-control-label {
+    word-wrap: break-word;
+    font-size: 16px;
+    padding: 0px;
+    text-align: left;
+    margin: 0px;
+}
+
+.text-field-control-field-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @extend .place-holder;
+}
+
+.focused-text-field-control-field-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @extend .place-holder;
+}
+
+.text-field-control-field-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.text-field-control-field {
+    width: calc(100% - 40px);
+    font-size: 16px;
+    border: 0px;
+    outline: 0px;
+}
+
+.text-field-control-field::placeholder {
+    font-size: 16px;
+}
+
+.text-field-control-error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.text-field-control-error-icon {
+    width: 15px;
+    height: 15px;
+    color: #d21111;
+}
+
+.text-field-control-error-text {
+    width: auto;
+    word-wrap: break-word;
+    font-size: 16px;
+    font-weight: 300;
+    color: #d21111;
+    padding: 0px;
+    text-align: left;
+    margin: 0px;
+}

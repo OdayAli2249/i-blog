@@ -1,0 +1,60 @@
+@import '../core/styles/styles.scss';
+
+.story-card-root {
+    width: 100%;
+    height: 300px;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}
+
+.story-card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @extend .place-holder;
+}
+
+.story-meta-row {
+    width: 100%;
+    @extend .row-main-start-cross-center;
+}
+
+.stacked-story-meta-row {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    @extend .row-main-start-cross-center;
+}
+
+.story-picture {
+    width: 50px;
+    height: 50px;
+    @extend .place-holder;
+}
+
+.story-title-container {
+    width: calc(100% - 50px); // 50px is the story picture width
+    @extend .column-main-start-cross-start;
+}
+
+.story-options-column {
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.story-option {
+    width: 50px;
+    height: 50px;
+    @extend .place-holder;
+}
+
+.story-description-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}

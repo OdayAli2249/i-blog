@@ -1,0 +1,38 @@
+@import '../../core/styles/styles.scss';
+
+.paragraph-element-color-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}
+
+.paragraph-element-color-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    @extend .place-holder;
+}
+
+.paragraph-element-color-grid-item {
+    width: 50px;
+    height: 50px;
+    @extend .place-holder;
+}
+
+.paragraph-element-rest-grid-items-container {
+    position: relative;
+    z-index: 1;
+}
+
+.paragraph-element-rest-grid-items {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.paragraph-element-color-row{
+    @extend .row-main-start-cross-center;
+}
+  

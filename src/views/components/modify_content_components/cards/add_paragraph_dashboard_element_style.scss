@@ -1,0 +1,9 @@
+@import '../../core/styles/styles.scss';
+
+.add-paragraph-dashboard-element-root {
+    border-radius: $small-radius;
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    @extend .place-holder;
+}

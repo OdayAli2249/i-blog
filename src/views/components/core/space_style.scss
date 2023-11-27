@@ -1,0 +1,19 @@
+@import './styles/styles.scss';
+
+.space-large {
+    width: $large-padding;
+    height: $large-padding;
+    @extend .place-holder;
+}
+
+.space-medium {
+    width: $medium-padding;
+    height: $medium-padding;
+    @extend .place-holder;
+}
+
+.space-small {
+    width: $small-padding;
+    height: $small-padding;
+    @extend .place-holder;
+}

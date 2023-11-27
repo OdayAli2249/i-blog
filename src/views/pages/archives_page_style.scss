@@ -1,0 +1,21 @@
+@import '../components/core/styles/styles.scss';
+
+.archives-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-start-cross-center;
+    @extend .place-holder;
+}
+
+.archives-box {
+    width: 80%;
+    height:auto;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}
+
+.archives-header{
+    width: 100%;
+    height: 150px;
+    @extend .place-holder;
+}

@@ -1,0 +1,38 @@
+@import '../core/styles/styles.scss';
+
+.confirm-action-content {
+    @extend .column-main-center-cross-center;
+}
+
+.confirm-action-title-text {
+    word-wrap: break-word;
+    font-size: 21px;
+    font-weight: bold;
+    color: #333;
+    padding: 0px;
+    margin: 0px;
+}
+
+.confirm-action-button-section {
+    width: 100%;
+    @extend .row-main-center-cross-center;
+    box-sizing: border-box;
+}
+
+.confirm-action-button {
+    height: 50px;
+    width: 120px;
+    @extend .row-main-center-cross-center;
+    @extend .place-holder;
+    cursor: pointer;
+}
+
+.confirm-action-samll-text {
+    word-wrap: break-word;
+    font-size: 8px;
+    font-weight: 100;
+    color: white;
+    padding: 0px;
+    text-align: left;
+    margin: 0px;
+}

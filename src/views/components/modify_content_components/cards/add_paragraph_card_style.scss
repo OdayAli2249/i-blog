@@ -1,0 +1,9 @@
+@import '../../core/styles/styles.scss';
+
+.add-paragraph-card-root {
+    border-radius: $small-radius;
+    width: 100%;
+    height: auto;
+    @extend .row-main-center-cross-center;
+    @extend .place-holder;
+}

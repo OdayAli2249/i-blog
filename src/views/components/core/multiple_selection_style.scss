@@ -1,0 +1,42 @@
+@import './styles/styles.scss';
+
+.multiple-selection-option-root {
+    @extend .column-main-start-cross-start;
+}
+
+.option {
+    cursor: pointer;
+    @extend .row-main-start-cross-center;
+}
+
+.selected-option {
+    cursor: pointer;
+    outline: 1px solid black;
+    @extend .row-main-start-cross-center;
+}
+
+.multiple-selection-option-icon {
+    width: 30px;
+    height: 30px;
+    @extend .place-holder;
+}
+
+.multiple-selection-option-container-2f {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    height: auto;
+}
+
+.multiple-selection-option-container-1f {
+    width: 100%;
+    @extend .column-main-start-cross-start;
+    height: auto;
+}
+
+.multiple-selection-option-container-4f {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    height: auto;
+}

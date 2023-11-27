@@ -1,0 +1,8 @@
+@import '../core/styles/styles.scss';
+
+.join-request-card-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+    @extend .row-main-space-between-cross-center;
+}

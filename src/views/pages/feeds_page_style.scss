@@ -1,0 +1,62 @@
+@import '../components/core/styles/styles.scss';
+
+.feeds-root {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    @extend .place-holder;
+}
+
+.feeds-row {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+    @extend .row-main-start-cross-start;
+}
+
+.feeds-side-bar-place-holder {
+    width: 400px;
+}
+
+.feeds-side-bar {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    width: 400px;
+    height: calc(100vh - 60px);
+    @extend .place-holder;
+    @extend .column-main-start-cross-center;
+}
+
+.feeds-options {
+    width: 80%;
+    height: 300px; // for now
+    @extend .place-holder;
+}
+
+.feeds-pages {
+    width: 80%;
+    height: 100px; // for now
+    @extend .place-holder;
+}
+
+.feeds-body {
+    width: calc(100% - 400px);
+    height: auto;
+    @extend .place-holder;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.feeds-item {
+    width: 80%;
+    height: 400px;
+    @extend .place-holder;
+}
+
+.feeds-header {
+    width: 80%;
+    height: 200px;
+    @extend .place-holder;
+}

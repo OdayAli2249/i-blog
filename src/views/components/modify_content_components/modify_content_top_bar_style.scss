@@ -1,0 +1,18 @@
+@import '../core/styles/styles.scss';
+
+.modify-content-top-bar-root {
+    list-style-type: none;
+    @extend .row-main-center-cross-center;
+    @extend .place-holder;
+}
+
+.modify-content-top-bar-item {
+    cursor: pointer;
+    @extend .place-holder;
+}
+
+.selected-modify-content-top-bar-item {
+    cursor: pointer;
+    background-color: grey;
+    @extend .place-holder;
+}
