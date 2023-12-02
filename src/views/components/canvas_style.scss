@@ -1,0 +1,7 @@
+@import './core/styles/styles.scss';
+
+.drawing-canvas-root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

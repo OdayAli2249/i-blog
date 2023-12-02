@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './paragraph_dashboard_elements_style.scss';
 import ParagraphDashboardContainerCardComponent from './cards/paragraph_dashboard_container_card_component';
 import ParagraphDashboardElementCardComponent from './cards/paragraph_dashboard_element_card_component';
@@ -7,6 +7,10 @@ import AddParagraphDashboardElementComponent from './cards/add_paragraph_dashboa
 function ParagraphDashboardElementsComponent(props) {
 
     const [paragraphElementsState, setParagraphElementsState] = useState(props.initialParagraphElementsState);
+
+    useEffect(() => {
+        setParagraphElementsState(props.initialParagraphElementsState);
+    }, [props.initialParagraphElementsState])
 
     return (
         <div className='paragraph-dashboard-elements-root'>

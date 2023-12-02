@@ -5,6 +5,7 @@ import ParagraphDashboardWrapperComponent from '../components/modify_content_com
 import ModifyContentTopBarComponent from '../components/modify_content_components/modify_content_top_bar_component';
 import ModifyContentListComponent from '../components/modify_content_components/modify_content_list_component';
 import ParagraphListComponent from '../components/modify_content_components/paragraph_list_component';
+import FutureEventsComponent from '../components/modify_content_components/future_events_component';
 
 function ModifyContentPage(props) {
     return (
@@ -25,7 +26,8 @@ function ModifyContentPage(props) {
                             <ModifyContentListComponent type={'post'} />
                         </div>
                         <div className='modify-content-item'>
-                            <ParagraphListComponent />
+                            {/* <ParagraphListComponent /> */}
+                            <FutureEventsComponent />
                         </div>
                         <div className='modify-content-item'>
 

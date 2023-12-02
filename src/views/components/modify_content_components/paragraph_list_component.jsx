@@ -53,6 +53,16 @@ function ParagraphListComponent(props) {
     const [paragraphsState, setParagraphsState] = useState(initialParagraphsState);
     const refs = useRef([])
 
+    const unselectAll = () => {
+        const updatedParagraphState = [...paragraphsState.paragraphs];
+        updatedParagraphState.map(paragraph => {
+            paragraph.elements.map(element => element.selected = false);
+            paragraph.container.selected = false;
+        })
+
+        return updatedParagraphState;
+    }
+
     return (
         <div className='paragraph-list-root'>
             <div className='paragraph-list-body'>
@@ -61,8 +71,18 @@ function ParagraphListComponent(props) {
                         ref={el => (refs.current[idx] = el)}
                         paragraph={paragraph}
                         key={idx}
-                        onContainerClicked={(containerItem) => {
+                        onContainerClicked={() => {
 
+                            const paragraphs = unselectAll();
+                            paragraphs.map(paragraphItem => {
+                                if (paragraphItem.container.name == paragraph.container.name)
+                                    paragraphItem.container.selected = true;
+                            })
+                            const updatedParagraphs = [...paragraphs]
+
+                            setParagraphsState({
+                                paragraphs: updatedParagraphs
+                            })
                         }}
                         onContainerDeleted={() => {
                             const updatedParagraphs = [...paragraphsState.paragraphs.filter(paragraphItem =>

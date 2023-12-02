@@ -20,6 +20,7 @@ import { userSavesReducer } from './reducers/user_saves_reducer';
 import { userFavoritesReducer } from './reducers/user_favorites_reducer';
 import { defaultReducer } from './reducers/default_reducer';
 import { userReducer } from './reducers/user_reducer';
+import { futureEventsReducer } from './reducers/future_events_reducer';
 
 const rootReducer = combineReducers({
     posts: postsReducer,
@@ -41,7 +42,8 @@ const rootReducer = combineReducers({
     userSaves: userSavesReducer,
     userFavorites: userFavoritesReducer,
     default: defaultReducer,
-    user: userReducer
+    user: userReducer,
+    futureEvents: futureEventsReducer
 });
 
 

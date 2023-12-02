@@ -1,0 +1,14 @@
+@import '../core/styles/styles.scss';
+
+.future-events-root {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    @extend .place-holder;
+}
+
+.future-event-square {
+    width: 100%;
+    height: 200px;
+    @extend .place-holder;
+}
