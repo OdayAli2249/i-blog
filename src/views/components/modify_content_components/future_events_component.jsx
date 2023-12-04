@@ -12,12 +12,13 @@ function FutureEventsComponent(props) {
     }, [])
 
     var items = []
+    var squareIndex = 0
     var co = futureEvents.data && futureEvents.data.items ? futureEvents.data.items.forEach(function (value, key) {
-        items.push(<div key={'1'} className='future-event-square'></div>)
+        items.push(<div key={squareIndex++} className='future-event-square'></div>)
     }) : <></>;
 
     return (
-        <div className='future-events-root'>
+        <div className='future-events-root' style={{ display: props.hidden ? 'none' : null }}>
             {items}
         </div>
     );

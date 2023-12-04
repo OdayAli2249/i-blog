@@ -36,6 +36,50 @@ const posts = [
     {
         id: 1,
         name: 'post1',
+        content: {
+            paragraphs: [
+                {
+                    container: { name: 'container1', selected: false },
+                    elements: [
+                        { name: 'text1', selected: false },
+                        { name: 'text2', selected: false },
+                        { name: 'image1', selected: false },
+                        { name: 'image2', selected: false },
+                        { name: 'image3', selected: false }
+                    ]
+                },
+                {
+                    container: { name: 'container2', selected: false },
+                    elements: [
+                        { name: 'text1', selected: false },
+                        { name: 'text2', selected: false },
+                        { name: 'image1', selected: false },
+                        { name: 'image2', selected: false },
+                        { name: 'image3', selected: false }
+                    ]
+                },
+                {
+                    container: { name: 'container3', selected: false },
+                    elements: [
+                        { name: 'text1', selected: false },
+                        { name: 'text2', selected: false },
+                        { name: 'image1', selected: false },
+                        { name: 'image2', selected: false },
+                        { name: 'image3', selected: false }
+                    ]
+                },
+                {
+                    container: { name: 'container4', selected: false },
+                    elements: [
+                        { name: 'text1', selected: false },
+                        { name: 'text2', selected: false },
+                        { name: 'image1', selected: false },
+                        { name: 'image2', selected: false },
+                        { name: 'image3', selected: false }
+                    ]
+                }
+            ]
+        },
         userContent: {
             save: true,
             favorite: true,

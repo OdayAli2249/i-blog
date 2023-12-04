@@ -3,10 +3,13 @@ import './paragraph_dashboard_elements_style.scss';
 import ParagraphDashboardContainerCardComponent from './cards/paragraph_dashboard_container_card_component';
 import ParagraphDashboardElementCardComponent from './cards/paragraph_dashboard_element_card_component';
 import AddParagraphDashboardElementComponent from './cards/add_paragraph_dashboard_element_component';
+import ParagraphElementTagFieldComponent from './controls/paragraph_element_tag_field_component';
+import DialogComponent from '../core/dialog_components/dialog_component';
 
 function ParagraphDashboardElementsComponent(props) {
 
     const [paragraphElementsState, setParagraphElementsState] = useState(props.initialParagraphElementsState);
+    const [showDialog, setShowDialog] = useState(false);
 
     useEffect(() => {
         setParagraphElementsState(props.initialParagraphElementsState);
@@ -28,13 +31,28 @@ function ParagraphDashboardElementsComponent(props) {
                         props.onElementClicked(element.name);
                     }} />)}
             <AddParagraphDashboardElementComponent onClicked={() => {
-                var newElement = { name: 'new element', selected: false };
-                setParagraphElementsState({
-                    elements:
-                        [...paragraphElementsState.elements, newElement]
-                });
-                props.onElementAdded(newElement)
+                setShowDialog(true);
             }} />
+            {showDialog && <DialogComponent
+                show={showDialog}
+                height='40'
+                width='60'
+                onClose={() => {
+                    setShowDialog(false)
+                }}>
+                <ParagraphElementTagFieldComponent
+                    hint={'Write a tag...'}
+                    initialValue={''}
+                    onSend={(tag) => {
+                        var newElement = { name: tag, selected: true };
+                        setParagraphElementsState({
+                            elements:
+                                [...paragraphElementsState.elements, newElement]
+                        });
+                        props.onElementAdded(newElement)
+                        setShowDialog(false);
+                    }} />
+            </DialogComponent>}
         </div>
     );
 }

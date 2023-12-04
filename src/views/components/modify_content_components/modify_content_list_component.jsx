@@ -13,10 +13,13 @@ import { postsMiddleware } from '../../../redux/middlewares/posts_middleware';
 import { storiesMiddleware } from '../../../redux/middlewares/stories_middleware';
 import ButtonComponent from '../core/button_component';
 import ChangePageComponent from '../core/pagination_components/pagination_change_page_component';
+import { useDispatch } from 'react-redux';
+import { modifyContentMiddleware } from '../../../redux/middlewares/modify_content_middleware';
 
 function ModifyContentListComponent(props) {
 
     const contentRef = useRef(null);
+    const dispatch = useDispatch();
 
     return (
         <div className='modify-content-list-root'>
@@ -42,16 +45,20 @@ function ModifyContentListComponent(props) {
                     state => state.blogs : props.type == 'advert' ? state => state.adverts :
                         props.type == 'story' ? state => state.stories : props.type == 'event' ?
                             state => state.events : null}
-                itemBuilder={(ID, content, view) => {
+                itemBuilder={(ID, contentObject, view) => {
                     if (props.type == 'post')
                         return <PostCardComponent
                             hideOptions={true}
                             hideInteractions={true}
                             height={view.list ? '280px' : '200px'}
+                            showModify={true}
+                            onModifyClicked={() => {
+                                dispatch(modifyContentMiddleware({ content: contentObject.content }))
+                            }}
                             onClick={() => { }}
                             selectionMod={false}
                             key={ID}
-                            post={content}
+                            post={contentObject}
                             view={view} />
                     if (props.type == 'blog')
                         return <BlogCardComponent
@@ -61,7 +68,7 @@ function ModifyContentListComponent(props) {
                             onClick={() => { }}
                             selectionMod={false}
                             key={ID}
-                            blog={content}
+                            blog={contentObject}
                             view={view} />
                     if (props.type == 'story')
                         return <StoryCardComponent
@@ -71,7 +78,7 @@ function ModifyContentListComponent(props) {
                             onClick={() => { }}
                             selectionMod={false}
                             key={ID}
-                            story={content}
+                            story={contentObject}
                             view={view} />
                     if (props.type == 'event')
                         return <EventCardComponent
@@ -81,7 +88,7 @@ function ModifyContentListComponent(props) {
                             onClick={() => { }}
                             selectionMod={false}
                             key={ID}
-                            event={content}
+                            event={contentObject}
                             view={view} />
                     if (props.type == 'advert')
                         return <AdvertCardComponent
@@ -91,7 +98,7 @@ function ModifyContentListComponent(props) {
                             onClick={() => { }}
                             selectionMod={false}
                             key={ID}
-                            advert={content}
+                            advert={contentObject}
                             view={view} />
                 }
                 }

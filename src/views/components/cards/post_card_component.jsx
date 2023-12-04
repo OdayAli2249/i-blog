@@ -69,8 +69,13 @@ function PostCardComponent(props) {
                                 else
                                     props.onClick();
                             }}>
-
                         </div>
+                        {props.showModify && <div className='post-option'
+                            onClick={() => {
+                                if (props.onModifyClicked)
+                                    props.onModifyClicked()
+                            }}>
+                        </div>}
                     </div>}
             </div>
             {props.view.list && !props.hideInteractions ?

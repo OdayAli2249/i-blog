@@ -1,0 +1,11 @@
+@import '../../core/styles/styles.scss';
+
+.paragraph-element-tag-field-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}
+
+.paragraph-element-tag-field-row {
+    @extend .row-main-space-between-cross-start
+}

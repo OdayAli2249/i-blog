@@ -2,143 +2,60 @@ import React, { useRef, useState } from 'react';
 import './paragraph_list_style.scss';
 import ParagraphCardComponent from './cards/paragraph_card_component';
 import AddParagraphCardComponent from './cards/add_paragraph_card_component';
+import { useDispatch, useSelector } from 'react-redux';
+import { Actions } from '../../../redux/actions';
+import ParagraphElementTagFieldComponent from './controls/paragraph_element_tag_field_component';
+import DialogComponent from '../core/dialog_components/dialog_component';
 
 function ParagraphListComponent(props) {
 
-    const initialParagraphsState = {
-        paragraphs: [
-            {
-                container: { name: 'container1', selected: false },
-                elements: [
-                    { name: 'text1', selected: false },
-                    { name: 'text2', selected: false },
-                    { name: 'image1', selected: false },
-                    { name: 'image2', selected: false },
-                    { name: 'image3', selected: false }
-                ]
-            },
-            {
-                container: { name: 'container2', selected: false },
-                elements: [
-                    { name: 'text1', selected: false },
-                    { name: 'text2', selected: false },
-                    { name: 'image1', selected: false },
-                    { name: 'image2', selected: false },
-                    { name: 'image3', selected: false }
-                ]
-            },
-            {
-                container: { name: 'container3', selected: false },
-                elements: [
-                    { name: 'text1', selected: false },
-                    { name: 'text2', selected: false },
-                    { name: 'image1', selected: false },
-                    { name: 'image2', selected: false },
-                    { name: 'image3', selected: false }
-                ]
-            },
-            {
-                container: { name: 'container4', selected: false },
-                elements: [
-                    { name: 'text1', selected: false },
-                    { name: 'text2', selected: false },
-                    { name: 'image1', selected: false },
-                    { name: 'image2', selected: false },
-                    { name: 'image3', selected: false }
-                ]
-            }
-        ]
-    }
-
-    const [paragraphsState, setParagraphsState] = useState(initialParagraphsState);
+    const dispatch = useDispatch();
+    const paragraphsState = useSelector(state => state.modifyContent);
+    const [showDialog, setShowDialog] = useState(false);
     const refs = useRef([])
 
-    const unselectAll = () => {
-        const updatedParagraphState = [...paragraphsState.paragraphs];
-        updatedParagraphState.map(paragraph => {
-            paragraph.elements.map(element => element.selected = false);
-            paragraph.container.selected = false;
-        })
-
-        return updatedParagraphState;
-    }
-
     return (
-        <div className='paragraph-list-root'>
+        <div className='paragraph-list-root' style={{ display: props.hidden ? 'none' : null }}>
             <div className='paragraph-list-body'>
-                {paragraphsState.paragraphs.map((paragraph, idx) =>
+                {paragraphsState.paragraphs && paragraphsState.paragraphs.map((paragraph, idx) =>
                     <ParagraphCardComponent
                         ref={el => (refs.current[idx] = el)}
                         paragraph={paragraph}
                         key={idx}
                         onContainerClicked={() => {
-
-                            const paragraphs = unselectAll();
-                            paragraphs.map(paragraphItem => {
-                                if (paragraphItem.container.name == paragraph.container.name)
-                                    paragraphItem.container.selected = true;
-                            })
-                            const updatedParagraphs = [...paragraphs]
-
-                            setParagraphsState({
-                                paragraphs: updatedParagraphs
-                            })
+                            dispatch({ type: Actions.ON_CONTAINER_CLICKED, paragraph })
                         }}
                         onContainerDeleted={() => {
-                            const updatedParagraphs = [...paragraphsState.paragraphs.filter(paragraphItem =>
-                                paragraphItem.container.name != paragraph.container.name)]
-
-                            setParagraphsState({
-                                paragraphs: updatedParagraphs
-                            })
+                            dispatch({ type: Actions.ON_CONTAINER_DELETED, paragraph })
                         }}
                         onElementAdded={(elementItem) => {
-                            var updatedElements = [...paragraph.elements];
-                            updatedElements.push(elementItem)
-                            const updatedParagraphs = [...paragraphsState.paragraphs]
-                            updatedParagraphs.map((paragraphItem, idx) => {
-                                if (paragraph.container.name == paragraphItem.container.name)
-                                    paragraphItem.elements = updatedElements;
-                            })
-                            setParagraphsState({ paragraphs: updatedParagraphs })
+                            dispatch({ type: Actions.ON_ELEMENT_ADDED, paragraph, elementItem })
                         }}
                         onElementDeleted={(elementItem) => {
-                            var updatedElements =
-                                [...paragraph.elements.filter(element => element.name != elementItem.name)]
-                            const updatedParagraphs = [...paragraphsState.paragraphs]
-                            updatedParagraphs.map((paragraphItem, idx) => {
-                                if (paragraph.container.name == paragraphItem.container.name)
-                                    paragraphItem.elements = updatedElements;
-                            })
-                            setParagraphsState({ paragraphs: updatedParagraphs })
+                            dispatch({ type: Actions.ON_ELEMENT_DELETED, paragraph, elementItem })
                         }}
                         onElementClicked={(elementItem) => {
-                            var updatedElements = [...paragraph.elements];
-                            updatedElements.map(element => {
-                                if (element.name == elementItem.name)
-                                    element.selected = true;
-                                else element.selected = false;
-                            })
-                            const updatedParagraphs = [...paragraphsState.paragraphs]
-                            updatedParagraphs.map((paragraphItem, idx) => {
-                                if (paragraph.container.name == paragraphItem.container.name)
-                                    paragraphItem.elements = updatedElements;
-                                else {
-                                    paragraphItem.elements.map(elementItem => elementItem.selected = false)
-                                    refs.current[idx].unselectAll();
-                                }
-                            })
-                            setParagraphsState({ paragraphs: updatedParagraphs })
+                            dispatch({ type: Actions.ON_ELEMENT_CLICKED, paragraph, elementItem })
                         }} />)}
-                <AddParagraphCardComponent onClicked={() => {
-                    setParagraphsState({
-                        paragraphs: [...paragraphsState.paragraphs, {
-                            container: { name: 'new container', selected: false },
-                            elements: []
-                        }]
-                    })
-                }} />
+                {paragraphsState.paragraphs && <AddParagraphCardComponent onClicked={() => {
+                    setShowDialog(true);
+                }} />}
             </div>
+            {showDialog && <DialogComponent
+                show={showDialog}
+                height='40'
+                width='60'
+                onClose={() => {
+                    setShowDialog(false)
+                }}>
+                <ParagraphElementTagFieldComponent
+                    hint={'Write a tag...'}
+                    initialValue={''}
+                    onSend={(tag) => {
+                        dispatch({ type: Actions.ON_CONTAINER_ADDED, tag })
+                        setShowDialog(false);
+                    }} />
+            </DialogComponent>}
         </div>
     );
 }
