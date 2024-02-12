@@ -70,7 +70,7 @@ function SearchContentPage(props) {
                                 <StoryCardComponent
                                     // height={'240px'}
                                     key={ID}
-                                    post={post}
+                                    story={post}
                                     view={view} />}
                         />
                     </div>
@@ -84,7 +84,7 @@ function SearchContentPage(props) {
                 height='93'
                 width='96'
                 onClose={() => { }}>
-                <ContentDetailsComponent />
+                {/* <ContentDetailsComponent /> */}
             </DialogComponent>
         </div>
     );

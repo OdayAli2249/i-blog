@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import './drop_down_menu_control_component.scss';
 import SpaceComponent from '../../space_component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,11 @@ import { faAngleDown, faArrowDown, faWarning } from '@fortawesome/free-solid-svg
 const DropDownMenuControlComponent = forwardRef((props, ref) => {
     const [value, setValue] = useState(props.initialValue);
     const [focus, setFocus] = useState(false);
+
+    useEffect(() => {
+        setValue(props.initialValue);
+    }, [props.initialValue])
+
     const validate = () => {
         // TO DO
     };

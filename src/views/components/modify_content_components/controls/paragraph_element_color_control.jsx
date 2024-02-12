@@ -27,7 +27,17 @@ function ParagraphElementColorControl(props) {
                 {!paragraphElementColorState.showAllColors &&
                     Array.from({ length: hideModColorsListLength }, (_, index) => index).map((idx) =>
                         <div key={idx} className='paragraph-element-color-grid-item'
-                            style={{ backgroundColor: colors[idx].color }} />
+                            style={{ backgroundColor: colors[idx].color }}
+                            onClick={() => {
+                                setParagraphElementColorState({
+                                    ...paragraphElementColorState,
+                                    color: colors[idx].color
+                                })
+                                props.onApply({
+                                    ...paragraphElementColorState,
+                                    color: colors[idx].color
+                                })
+                            }} />
                     )
                 }
                 {!paragraphElementColorState.showAllColors &&
@@ -45,7 +55,17 @@ function ParagraphElementColorControl(props) {
                 {paragraphElementColorState.showAllColors && colors.map(colorItem => {
                     // 25 is the half of item dimention
                     return <div key={colorItem.color} className='paragraph-element-color-grid-item'
-                        style={{ backgroundColor: colorItem.color }} />
+                        style={{ backgroundColor: colorItem.color }}
+                        onClick={() => {
+                            setParagraphElementColorState({
+                                ...paragraphElementColorState,
+                                color: colorItem.color
+                            })
+                            props.onApply({
+                                ...paragraphElementColorState,
+                                color: colorItem.color
+                            })
+                        }} />
                 })}
             </div>
             <div className='paragraph-element-color-row'>
@@ -66,8 +86,14 @@ function ParagraphElementColorControl(props) {
                 <input
                     type={'color'}
                     onChange={(event) => {
-
+                        setParagraphElementColorState({
+                            ...paragraphElementColorState,
+                            color: event.target.value
+                        })
                     }} />}
+            <ButtonComponent label={'Apply'} onClicked={() => {
+                props.onApply(paragraphElementColorState)
+            }} />
         </div>
     );
 }

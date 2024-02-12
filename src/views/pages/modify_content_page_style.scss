@@ -39,6 +39,7 @@
 .modify-content-item {
     width: 100%;
     height: auto;
+    @extend .column-main-start-cross-center;
     @extend .place-holder;
 }
 
@@ -57,5 +58,11 @@
     right: 10px;
     width: 300px;
     height: calc(100vh - 60px);
+    direction: rtl;
+    overflow: auto;
     @extend .place-holder;
+}
+
+.modify-content-canvas-container {
+    width: 80%;
 }

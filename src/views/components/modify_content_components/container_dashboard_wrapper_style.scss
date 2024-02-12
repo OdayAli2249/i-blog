@@ -1,0 +1,7 @@
+@import '../core/styles/styles.scss';
+
+.container-dashboard-wrapper-root {
+    width: 100%;
+    height: auto;
+    @extend .place-holder;
+}

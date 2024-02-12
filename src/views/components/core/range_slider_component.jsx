@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './range_slider_style.scss';
 import SpaceComponent from './space_component';
 
@@ -8,13 +8,18 @@ function RangeSliderComponent(props) {
 
     const handleSliderChange = (event) => {
         setSliderValue(event.target.value);
+        props.onChanged(event.target.value);
     };
+
+    useEffect(() => {
+        setSliderValue(props.initialValue)
+    }, [props.initialValue])
 
     return (
         <div className='range-slider-root'>
             <h5 className='standard-text'>{props.leftLabel}</h5>
             <SpaceComponent width={'10px'} />
-            <input
+            <input className='range-slider'
                 type="range"
                 id="rangeSlider"
                 value={sliderValue}

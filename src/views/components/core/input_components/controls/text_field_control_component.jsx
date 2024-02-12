@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import './text_field_control_component.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faLock, faWarning } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,10 @@ const TextFieldControlComponent = forwardRef((props, ref) => {
     const validate = () => {
         return props.validator();
     };
+
+    useEffect(() => {
+        setValue(props.initialValue);
+    }, [props.initialValue])
 
     React.useImperativeHandle(ref, () => ({
         validate,

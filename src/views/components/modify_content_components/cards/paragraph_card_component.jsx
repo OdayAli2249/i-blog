@@ -39,25 +39,12 @@ const ParagraphCardComponent = forwardRef((props, ref) => {
                     initialParagraphElementsState={{ elements: paragraphState.elements }}
                     onElementDeleted={(element) => {
                         props.onElementDeleted(element)
-                        // var updatedElements =
-                        //     [...paragraphState.elements.filter(elementItem => elementItem.name != element.name)]
-                        // setParagraphState({ ...paragraphState, elements: updatedElements })
                     }}
                     onElementAdded={(element) => {
                         props.onElementAdded(element)
-                        // var updatedElements = [...paragraphState.elements];
-                        // updatedElements.push(element)
-                        // setParagraphState({ ...paragraphState, elements: updatedElements })
                     }}
                     onElementClicked={(elementName) => {
                         props.onElementClicked({ name: elementName })
-                        // var updatedElements = [...paragraphState.elements];
-                        // updatedElements.map(element => {
-                        //     if (element.name == elementName)
-                        //         element.selected = true;
-                        //     else element.selected = false;
-                        // })
-                        // setParagraphState({ ...paragraphState, elements: updatedElements })
                     }} />
             </div>
         </div>

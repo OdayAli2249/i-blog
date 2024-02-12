@@ -1,1 +1,8 @@
 @import '../../core/styles/styles.scss';
+
+.paragraph-container-dimension-root {
+    width: 100%;
+    height: auto;
+    @extend .column-main-start-cross-start;
+    @extend .place-holder;
+}

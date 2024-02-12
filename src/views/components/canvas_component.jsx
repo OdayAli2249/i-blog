@@ -1,42 +1,18 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import './canvas_style.scss';
+import { useSelector } from 'react-redux';
 
 const DrawingCanvas = forwardRef((props, ref) => {
-    const render = (content) => {
-        console.log(content);
-        content.paragraphs.forEach(paragraph => {
-            drawRoundedRect(
-                paragraph.container.position.x,
-                paragraph.container.position.y,
-                paragraph.container.dimension.width,
-                paragraph.container.dimension.height,
-                paragraph.container.shape / 10,
-                paragraph.container.color);
-
-            paragraph.elements.forEach(element => {
-                if (element.type == 'text') {
-                    drawTextWithLineBreaks(
-                        element.text,
-                        paragraph.container.position.x + element.position.x,
-                        paragraph.container.position.y + element.position.y + element.fontSize,
-                        paragraph.container.dimension.width - 2 * element.position.x,
-                        element.fontSize);
-                } else {
-
-                }
-            });
-        })
-    };
-
-    React.useImperativeHandle(ref, () => ({
-        render
-    }));
 
     const width = '100%';
     const standardWidth = 1000;
-    const relativeHeight = 1.5;
+    const relativeHeight = 1.3;
 
+    const paragraphsState = useSelector(state => state.modifyContent);
     const [dimension, setDimension] = useState({ width: width, height: '500px' });
+    React.useImperativeHandle(ref, () => ({
+        render
+    }));
 
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
@@ -50,6 +26,40 @@ const DrawingCanvas = forwardRef((props, ref) => {
         setDimension({ width: canvas.width, height: canvas.height })
         console.log(canvas.width, canvas.height);
     }, []);
+
+    useEffect(() => {
+        if (paragraphsState.paragraphs) {
+            render(paragraphsState);
+        }
+    }, [paragraphsState])
+
+    const render = (content) => {
+        console.log(content);
+        contextRef.current.clearRect(0, 0, dimension.width, dimension.height);
+        content.paragraphs.forEach(paragraph => {
+            drawRoundedRect(
+                Number(paragraph.container.position.x),
+                Number(paragraph.container.position.y),
+                Number(paragraph.container.dimension.width),
+                Number(paragraph.container.dimension.height),
+                Number(paragraph.container.shape / 10),
+                paragraph.container.color);
+
+            paragraph.elements.forEach(element => {
+                if (element.type == 'text') {
+                    drawTextWithLineBreaks(
+                        element.text,
+                        Number(paragraph.container.position.x) + Number(element.position.x),
+                        Number(paragraph.container.position.y) + Number(element.position.y) + Number(element.size),
+                        Number(paragraph.container.dimension.width) - 2 * Number(element.position.x),
+                        Number(element.size));
+                } else {
+                    drawImage(convert(0), convert(500), 1.0, convert(500), 0.5);
+                }
+            });
+        })
+    };
+
 
     const drawImage = (x, y, size, width, borderRadiusPercentage) => {
         if (!contextRef.current) return;
@@ -135,7 +145,7 @@ const DrawingCanvas = forwardRef((props, ref) => {
     const convert = (digit) => digit * dimension.width / standardWidth;
 
     return (
-        <div className='drawing-canvas-root' style={{ height: dimension.height }}>
+        <div className='drawing-canvas-root' style={{ height: dimension.height, display: props.hidden ? 'none' : null }}>
             <canvas
                 ref={canvasRef}
                 style={{ border: '1px solid #000' }}

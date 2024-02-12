@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import './text_area_control_component.scss';
 import SpaceComponent from '../../space_component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,10 @@ import { faWarning } from '@fortawesome/free-solid-svg-icons';
 const TextAreaControlComponent = forwardRef((props, ref) => {
     const [value, setValue] = useState(props.initialValue);
     const [focus, setFocus] = useState(false);
+
+    useEffect(() => {
+        setValue(props.initialValue);
+    }, [props.initialValue])
 
     const validate = () => {
         // TO DO

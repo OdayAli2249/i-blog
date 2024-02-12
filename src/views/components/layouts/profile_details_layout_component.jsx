@@ -42,22 +42,23 @@ function ProfileDetailsLayoutComponent(props) {
                     {userState.data && userState.data.item ? <div className='profile-details-layout-profile-cover'>
 
                     </div> : <div className='profile-details-layout-profile-cover-place-holder' />}
-                    {userState.data && userState.data.item ? <div className='profile-details-layout-profile-footer'>
-                        {currentUser == id && <ButtonComponent />}
-                        <div className='profile-details-layout-profile-row'>
-                            <div className='profile-details-layout-profile-column'>
-                                <h4 className='standard-text'>
-                                    +++++++
-                                </h4>
-                                <h3 className='standard-text'>
-                                    ++++++++++++++++++
-                                </h3>
-                            </div>
-                            <div className='profile-details-layout-profile-avatar'>
+                    {userState.data && userState.data.item ?
+                        <div className='profile-details-layout-profile-footer'>
+                            {currentUser == id && <ButtonComponent />}
+                            <div className='profile-details-layout-profile-row'>
+                                <div className='profile-details-layout-profile-column'>
+                                    <h4 className='standard-text'>
+                                        +++++++
+                                    </h4>
+                                    <h3 className='standard-text'>
+                                        ++++++++++++++++++
+                                    </h3>
+                                </div>
+                                <div className='profile-details-layout-profile-avatar'>
 
+                                </div>
                             </div>
-                        </div>
-                    </div> : <div className='profile-details-layout-profile-footer-place-holder' />}
+                        </div> : <div className='profile-details-layout-profile-footer-place-holder' />}
                     <div className='profile-details-layout-content'>
                         <Outlet />
                     </div>

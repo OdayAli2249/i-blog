@@ -90,6 +90,138 @@ const posts = [
     {
         id: 2,
         name: 'post2',
+        content: {
+            paragraphs: [
+                {
+                    container: {
+                        name: 'container1',
+                        position: {
+                            x: 505,
+                            y: 10
+                        },
+                        shape: 5,
+                        color: 'blue',
+                        dimension: {
+                            width: 485,
+                            height: 400
+                        },
+                        selected: false
+                    },
+                    elements: [
+                        {
+                            name: 'text1',
+                            type: 'text',
+                            color: 'black',
+                            text: 'TEXT-1: This time last year, NewBreed’s resources were being used by church planters in 48 countries. At the time, we were overwhelmed by the enthusiasm of the global church, yet praying for greater impact.  Today, we are excited to share that our resources are now being used in 72 countries! That’s 50% more than last year!…',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 20,
+                            selected: false,
+                        },
+                        {
+                            name: 'text2',
+                            type: 'text',
+                            color: 'black',
+                            text: 'TEXT-2: This time last year, NewBreed’s resources were being used by church planters in 48 countries. At the time, we were overwhelmed by the enthusiasm of the global church, yet praying for greater impact.  Today, we are excited to share that our resources are now being used in 72 countries! That’s 50% more than last year!…',
+                            position: {
+                                x: 10,
+                                y: 200
+                            },
+                            size: 20,
+                            selected: false,
+                        },
+                        {
+                            name: 'image1',
+                            type: 'image',
+                            src: process.env.PUBLIC_URL + '/images/ar.jpg',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 100,
+                            selected: false,
+                        },
+                        {
+                            name: 'image2',
+                            type: 'image',
+                            src: process.env.PUBLIC_URL + '/images/ar.jpg',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 100,
+                            selected: false
+                        }
+                    ]
+                },
+                {
+                    container: {
+                        name: 'container2',
+                        position: {
+                            x: 10,
+                            y: 10
+                        },
+                        shape: 1,
+                        color: 'blue',
+                        dimension: {
+                            width: 485,
+                            height: 400
+                        },
+                        selected: false
+                    },
+                    elements: [
+                        {
+                            name: 'text3',
+                            type: 'text',
+                            color: 'black',
+                            text: 'TEXT-3: This time last year, NewBreed’s resources were being used by church planters in 48 countries. At the time, we were overwhelmed by the enthusiasm of the global church, yet praying for greater impact.  Today, we are excited to share that our resources are now being used in 72 countries! That’s 50% more than last year!…',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 20,
+                            selected: false,
+                        },
+                        {
+                            name: 'text4',
+                            type: 'text',
+                            color: 'black',
+                            text: 'TEXT-4: This time last year, NewBreed’s resources were being used by church planters in 48 countries. At the time, we were overwhelmed by the enthusiasm of the global church, yet praying for greater impact.  Today, we are excited to share that our resources are now being used in 72 countries! That’s 50% more than last year!…',
+                            position: {
+                                x: 10,
+                                y: 200
+                            },
+                            size: 20,
+                            selected: false,
+                        },
+                        {
+                            name: 'image3',
+                            type: 'image',
+                            src: process.env.PUBLIC_URL + '/images/ar.jpg',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 100,
+                            selected: false,
+                        },
+                        {
+                            name: 'image4',
+                            type: 'image',
+                            src: process.env.PUBLIC_URL + '/images/ar.jpg',
+                            position: {
+                                x: 10,
+                                y: 10
+                            },
+                            size: 100,
+                            selected: false
+                        }
+                    ]
+                }
+            ]
+        },
         userContent: {
             save: false,
             favorite: true,

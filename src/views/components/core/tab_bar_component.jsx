@@ -7,7 +7,7 @@ function TabBarComponent(props) {
 
     return (
         <ul className='tab-bar-root'>
-            {props.items.map((item, index) => <li className={selectedItem == index ?
+            {props.items.map((item, index) => <li key={index} className={selectedItem == index ?
                 'selected-tab-bar-item' : 'tab-bar-item'}
                 onClick={() => {
                     if (selectedItem != index) {

@@ -138,6 +138,8 @@ export class Actions {
     static ON_ELEMENT_DELETED = 'ON_ELEMENT_DELETED';
     static ON_ELEMENT_CLICKED = 'ON_ELEMENT_CLICKED';
     static ON_CONTAINER_ADDED = 'ON_CONTAINER_ADDED';
+    static ON_CONTAINER_CHANGED = 'ON_CONTAINER_CHANGED';
+    static ON_ELEMENT_CHANGED = 'ON_ELEMENT_CHANGED';
 }
 
 export class Operations {

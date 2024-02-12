@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TextFieldControlComponent from '../../core/input_components/controls/text_field_control_component';
 import './paragraph_element_name_style.scss';
 
 function ParagraphElementNameControl(props) {
     const [paragraphElementNameState, setParagraphElementNameState] = useState(props.initialParagraphElementNameState);
+    useEffect(() => {
+        setParagraphElementNameState(props.initialParagraphElementNameState);
+    }, [props.initialParagraphElementNameState])
 
     return (
         <div className='paragraph-element-name-root'>

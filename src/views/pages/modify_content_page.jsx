@@ -31,6 +31,9 @@ function ModifyContentPage(props) {
                         <div className='modify-content-item'>
                             <TabBarComponent items={['canvas', 'control panel', 'meta data', 'events']}
                                 onChanged={(tab) => setTab(tab)} />
+                            <div className='modify-content-canvas-container'>
+                                <DrawingCanvas hidden={tab == 0 ? false : true} />
+                            </div>
                             <ParagraphListComponent hidden={tab == 1 ? false : true} />
                             <FutureEventsComponent hidden={tab == 3 ? false : true} />
                         </div>

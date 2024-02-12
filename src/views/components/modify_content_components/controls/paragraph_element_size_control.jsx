@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './paragraph_element_size_style.scss'
 import MultipleSelectionComponent from '../../core/multiple_selection_component';
 import ButtonComponent from '../../core/button_component';
@@ -15,6 +15,9 @@ function ParagraphElementSizeControl(props) {
     ]
 
     const [paragraphElementSizeState, setParagraphElementSizeState] = useState(props.initialParagraphElementSizeState)
+    useEffect(() => {
+        setParagraphElementSizeState(props.initialParagraphElementSizeState);
+    }, [props.initialParagraphElementSizeState])
 
     return (
         <div className='paragraph-element-size-root'>
@@ -33,7 +36,16 @@ function ParagraphElementSizeControl(props) {
                 })
             }} />
             {paragraphElementSizeState.showCustomizeOption &&
-                <RangeSliderComponent leftLabel={'Min'} rightLabel={'Max'} initialValue={50} />}
+                <RangeSliderComponent leftLabel={'Min'} rightLabel={'Max'} initialValue={50}
+                    onChanged={(value) => {
+                        setParagraphElementSizeState({
+                            ...paragraphElementSizeState,
+                            size: value
+                        })
+                    }} />}
+            <ButtonComponent label={'Apply'} onClicked={() => {
+                props.onApply(paragraphElementSizeState)
+            }} />
         </div>
     );
 }

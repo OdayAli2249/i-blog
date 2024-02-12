@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './paragraph_container_shape_style.scss';
 import ButtonComponent from '../../core/button_component';
 import RangeSliderComponent from '../../core/range_slider_component';
@@ -22,14 +22,30 @@ function ParagraphContainerShapeControl(props) {
     const hideModShapesListLength = 3;
     const [paragraphContainerShapeState, setParagraphContainerShapeState] = useState(props.initialParagraphContainerShapeState)
 
+    useEffect(() => {
+        setParagraphContainerShapeState(props.initialParagraphContainerShapeState);
+    }, [props.initialParagraphContainerShapeState])
+
     return (
         <div className='paragraph-container-shape-root'>
             <h4 className='standard-text'>Shapes({shapes.length})</h4>
             <div className='paragraph-container-shape-grid'>
                 {!paragraphContainerShapeState.showAllShapes &&
                     Array.from({ length: hideModShapesListLength }, (_, index) => index).map((idx) =>
-                        <div key={idx} className='paragraph-container-shape-grid-item'
-                            style={{ borderRadius: shapes[idx].radius * 25 }} />
+                        <div key={idx} className={paragraphContainerShapeState.shape == shapes[idx].radius * 10 ?
+                            'focused-paragraph-container-shape-grid-item' :
+                            'paragraph-container-shape-grid-item'}
+                            style={{ borderRadius: shapes[idx].radius * 25 }}
+                            onClick={() => {
+                                setParagraphContainerShapeState({
+                                    ...paragraphContainerShapeState,
+                                    shape: shapes[idx].radius * 10
+                                })
+                                props.onApply({
+                                    ...paragraphContainerShapeState,
+                                    shape: shapes[idx].radius * 10
+                                })
+                            }} />
                     )
                 }
                 {!paragraphContainerShapeState.showAllShapes &&
@@ -46,8 +62,20 @@ function ParagraphContainerShapeControl(props) {
                 }
                 {paragraphContainerShapeState.showAllShapes && shapes.map(shape => {
                     // 25 is the half of item dimention
-                    return <div key={shape.radius} className='paragraph-container-shape-grid-item'
-                        style={{ borderRadius: shape.radius * 25 }} />
+                    return <div key={shape.radius} className={paragraphContainerShapeState.shape == shape.radius * 10 ?
+                        'focused-paragraph-container-shape-grid-item' :
+                        'paragraph-container-shape-grid-item'}
+                        style={{ borderRadius: shape.radius * 25 }}
+                        onClick={() => {
+                            setParagraphContainerShapeState({
+                                ...paragraphContainerShapeState,
+                                shape: shape.radius * 10
+                            })
+                            props.onApply({
+                                ...paragraphContainerShapeState,
+                                shape: shape.radius * 10
+                            })
+                        }} />
                 })}
             </div>
             <div className='paragraph-container-shape-row'>
@@ -65,7 +93,17 @@ function ParagraphContainerShapeControl(props) {
                 }} />
             </div>
             {paragraphContainerShapeState.showCustomizeOption &&
-                <RangeSliderComponent leftLabel = {'Rect'} rightLabel = {'Circ'} initialValue = {50} />}
+                <RangeSliderComponent leftLabel={'Rect'} rightLabel={'Circ'} initialValue={0}
+                    max={10}
+                    onChanged={(value) => {
+                        setParagraphContainerShapeState({
+                            ...paragraphContainerShapeState,
+                            shape: value
+                        })
+                    }} />}
+            <ButtonComponent label={'Apply'} onClicked={() => {
+                props.onApply(paragraphContainerShapeState)
+            }} />
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './paragraph_dashboard_wrapper_style.scss';
 import ParagraphDashboardElementsComponent from './paragraph_dashboard_elements_component';
 import ParagraphContainerShapeControl from './controls/paragraph_container_shape_control';
@@ -9,21 +9,27 @@ import ParagraphElementPositionControl from './controls/paragraph_element_positi
 import ParagraphElementNameControl from './controls/paragraph_element_name_control';
 import { useDispatch, useSelector } from 'react-redux';
 import { Actions } from '../../../redux/actions';
+import ContainerDashboardWrapperComponent from './container_dashboard_wrapper_component';
+import ElementDashboardWrapperComponent from './element_dashboard_wrapper_component';
 
 function ParagraphDashboardWrapperComponent(props) {
 
-    // const [paragraphState, setParagraphState] = useState({
-    //     elements: [
-    //         { name: 'text1' },
-    //         { name: 'text2' },
-    //         { name: 'image1' },
-    //         { name: 'image2' },
-    //     ]
-    // });
-
-
     const dispatch = useDispatch();
     const paragraphsState = useSelector(state => state.modifyContent);
+    const [selectedElement, setSelectedElement] = useState(null);
+    useEffect(() => {
+        if (!paragraphsState.focusedParagraph)
+            setSelectedElement(null);
+        if (paragraphsState.focusedParagraph && paragraphsState.focusedParagraph.container.selected) {
+            setSelectedElement(null);
+        }
+        if (paragraphsState.focusedParagraph && !paragraphsState.focusedParagraph.container.selected) {
+            paragraphsState.focusedParagraph.elements.map(element => {
+                if (element.selected)
+                    setSelectedElement(element);
+            })
+        }
+    }, [paragraphsState])
 
 
     return (
@@ -39,18 +45,16 @@ function ParagraphDashboardWrapperComponent(props) {
                 onElementAdded={(elementItem) => {
                     dispatch({ type: Actions.ON_ELEMENT_ADDED, paragraph: paragraphsState.focusedParagraph, elementItem })
                 }} />}
-            {/* <ParagraphElementNameControl initialParagraphElementNameState={{ name: 'new element' }} /> */}
-            {/* <ParagraphContainerShapeControl
-                initialParagraphContainerShapeState={{ showAllShapes: false, showCustomizeOption: false }} /> */}
-            {/* <ParagraphElementColorControl
-                initialParagraphElementColorState={{ showAllColors: false, showCustomizeOption: false }} /> */}
-            {/* <ParagraphElementSizeControl
-                initialParagraphElementSizeState={{ showCustomizeOption: false, selectedOption: 0 }} />
-            <ParagraphElementContentControl initialParagraphContentState={{ type: 'Text' }} /> */}
-            {/* <ParagraphElementPositionControl initialParagraphElementPositionState={{
-                x: 50, y: 700
-            }} /> */}
-
+            {paragraphsState.focusedParagraph && paragraphsState.focusedParagraph.container.selected &&
+                <ContainerDashboardWrapperComponent container={paragraphsState.focusedParagraph.container}
+                    onChanged={(container) => {
+                        dispatch({ type: Actions.ON_CONTAINER_CHANGED, container })
+                    }} />}
+            {selectedElement &&
+                < ElementDashboardWrapperComponent element={selectedElement}
+                    onChanged={(element, property) => {
+                        dispatch({ type: Actions.ON_ELEMENT_CHANGED, element, property })
+                    }} />}
         </div>
     );
 }

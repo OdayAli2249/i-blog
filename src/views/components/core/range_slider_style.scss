@@ -2,11 +2,12 @@
 
 
 .range-slider-root {
+    width: 100%;
     @extend .row-main-start-cross-center;
 }
 
 #rangeSlider {
-    width: 60%;
+    width: 90%;
     margin: 10px 0;
     -webkit-appearance: none;
     appearance: none;
